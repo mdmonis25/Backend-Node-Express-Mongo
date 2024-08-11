@@ -39,8 +39,14 @@ router.get("/find", async (req,res)=>{
   let regex = RegExp("monis",'i');
   // to find exactly monis
   let regex1 = RegExp("^monis$",'i');
-  
   let user = await userModel.find({username:regex});
+  res.send(user);
+})
+
+// searching in an array
+router.get("/findArray", async (req,res)=>{
+
+  let user = await userModel.find({categories :{$all : ["react"]}});
   res.send(user);
 })
 module.exports = router;
