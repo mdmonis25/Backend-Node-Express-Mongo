@@ -29,24 +29,46 @@ router.get("/created", async (req, res) => {
     }
   );
 });
-router.get('/allusers',async (req,res)=>{
+router.get("/allusers", async (req, res) => {
   res.send(await userModel.find());
 });
 
 //searching case insensetive
-router.get("/find", async (req,res)=>{
+router.get("/find", async (req, res) => {
   // to find names containing monis
-  let regex = RegExp("monis",'i');
+  let regex = RegExp("monis", "i");
   // to find exactly monis
-  let regex1 = RegExp("^monis$",'i');
-  let user = await userModel.find({username:regex});
+  let regex1 = RegExp("^monis$", "i");
+  let user = await userModel.find({ username: regex });
   res.send(user);
-})
+});
 
 // searching in an array
-router.get("/findArray", async (req,res)=>{
-
-  let user = await userModel.find({categories :{$all : ["react"]}});
+router.get("/findArray", async (req, res) => {
+  let user = await userModel.find({ categories: { $all: ["react"] } });
   res.send(user);
-})
+});
+
+//searching in a date range
+router.get("/dateuser", async (req, res) => {
+  var date1 = "2024-08-10";
+  var date2 = "2024-09-10";
+  let user = await userModel.find({
+    dateCreated: { $gte: date1, $lte: date2 },
+  });
+  res.send(user);
+});
+
+// searching between lengths
+router.get("/lengthfilter", async (req, res) => {
+  let user = await userModel.find({
+    $expr: {
+      $and: [
+        { $gte: [{ $strLenCP: "$nickname" }, 0] },
+        { $lte: [{ $strLenCP: "$nickname" }, 5] },
+      ],
+    },
+  });
+  res.send(user);
+});
 module.exports = router;
