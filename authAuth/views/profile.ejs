@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Bungee);
+
+      body {
+        margin: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f9fbef;
+      }
+
+      button {
+        background-color: #cbf3f0;
+        border-radius: 50px;
+        color: #11534d;
+        border: 3px solid #2ec4b6;
+        line-height: 1;
+        font-size: 20px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px 25px;
+        font-family: "Bungee";
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        min-width: 200px;
+        text-align: center;
+      }
+      button:hover,
+      button:focus {
+        -webkit-animation-name: wobble;
+        animation-name: wobble;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+      }
+
+      @-webkit-keyframes wobble {
+        16.65% {
+          -webkit-transform: translateX(8px);
+          transform: translateX(8px);
+        }
+        33.3% {
+          -webkit-transform: translateX(-6px);
+          transform: translateX(-6px);
+        }
+        49.95% {
+          -webkit-transform: translateX(4px);
+          transform: translateX(4px);
+        }
+        66.6% {
+          -webkit-transform: translateX(-2px);
+          transform: translateX(-2px);
+        }
+        83.25% {
+          -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+        }
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+      }
+      @keyframes wobble {
+        16.65% {
+          -webkit-transform: translateX(8px);
+          transform: translateX(8px);
+        }
+        33.3% {
+          -webkit-transform: translateX(-6px);
+          transform: translateX(-6px);
+        }
+        49.95% {
+          -webkit-transform: translateX(4px);
+          transform: translateX(4px);
+        }
+        66.6% {
+          -webkit-transform: translateX(-2px);
+          transform: translateX(-2px);
+        }
+        83.25% {
+          -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+        }
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>This is profile</h1>
+      <a href="/logout">Logout</a>
+    </div>
+  </body>
+</html>
